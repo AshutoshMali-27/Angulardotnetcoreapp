@@ -1,0 +1,68 @@
+<div class="p-8 mt-4">
+
+    <div class="shadow p-8">
+
+        <h4> Create Employee Form</h4>
+        <form [formGroup]="employeefrom" (ngSubmit)="formsubmit()">
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Name</mat-label>
+                    <input type="Name" matInput 
+                           placeholder="Name" formControlName="name" >
+                    
+                  
+                  </mat-form-field>
+            </div>
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Code</mat-label>
+                    <input type="Code" matInput 
+                           placeholder="Code" formControlName="code">
+                   
+                  
+                  </mat-form-field>
+            </div>
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Age</mat-label>
+                    <input type="Age" matInput 
+                           placeholder="Age" formControlName="age">
+                    
+                  
+                  </mat-form-field>
+            </div>
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Department</mat-label>
+                    <input type="Department" matInput 
+                           placeholder="Department" formControlName="department">
+                    
+                  
+                  </mat-form-field>
+            </div>
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Email</mat-label>
+                    <input type="Email" matInput 
+                           placeholder="Email" formControlName="email">
+                   
+                  
+                  </mat-form-field>
+            </div>
+            <div class="w-full flex flex-wrap">
+                <mat-form-field class="w-full">
+                    <mat-label>Salary</mat-label>
+                    <input type="Salary" matInput 
+                           placeholder="Salary" formControlName="salary">
+                   
+                  
+                  </mat-form-field>
+            </div>
+    
+            <div class="flex justify-center">
+                <button mat-raised-button color="primary" >Save</button>
+            </div>
+        </form>
+    </div>
+   
+</div>
