@@ -23,5 +23,10 @@ export class HttpService {
   createemployee(employee:Iemployee){
     return this.http.post(this.apiUrl+"SetAllEmployee",employee)
   }
+  
+  getemployeebyid(employeeId:number){
+    debugger;
+    return this.http.get<Iemployee>(this.apiUrl+'GetAllEmployeeByID/'+employeeId)
+  }
 
 }

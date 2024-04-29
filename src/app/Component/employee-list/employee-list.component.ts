@@ -40,6 +40,7 @@ router=inject(Router)
   }
 
   edit(id:number){
+    debugger;
     console.log(id);
     this.router.navigateByUrl("/employee/"+id)
   }

@@ -1,10 +1,11 @@
-import { HttpService } from './../../http.service';
+  import { HttpService } from './../../http.service';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { Iemployee } from '../../Interface/interface';
-import { Router, RouterLinkWithHref } from '@angular/router';
+import { ActivatedRoute, Router, RouterLinkWithHref } from '@angular/router';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 
 @Component({
@@ -18,12 +19,26 @@ export class EmployeeFormComponent implements OnInit {
 
   employeeList:Iemployee[]=[];
   employeefrom:FormGroup=new FormGroup({});
-  router=inject(Router)
+  router=inject(Router);
+  route  =inject(ActivatedRoute);
 
   constructor( private fb:FormBuilder,private HttpService:HttpService) {}
 
+  employeeid!:number;
+  isedit=false;
   ngOnInit(): void {
       this.setemployee();
+     this.employeeid=this.route.snapshot.params['id'];
+     if(this.employeeid){
+      debugger;
+      this.isedit=true;
+      this.HttpService.getemployeebyid(this.employeeid).subscribe(result=>{
+        console.log(result);
+        this.employeefrom.patchValue(result);
+     //   this.employeefrom.controls.email.disabled();
+      })
+     }
+
   }
 
   setemployee(){
