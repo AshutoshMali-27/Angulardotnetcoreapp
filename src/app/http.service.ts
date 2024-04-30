@@ -29,4 +29,9 @@ export class HttpService {
     return this.http.get<Iemployee>(this.apiUrl+'GetAllEmployeeByID/'+employeeId)
   }
 
+  Updateemployee(employeeId:number,employee:Iemployee){
+    debugger;
+    return this.http.put<Iemployee>(this.apiUrl+'updateEmployee/'+employeeId,employee)
+  }
+
 }

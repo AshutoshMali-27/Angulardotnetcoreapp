@@ -36,6 +36,8 @@ export class EmployeeFormComponent implements OnInit {
         console.log(result);
         this.employeefrom.patchValue(result);
      //   this.employeefrom.controls.email.disabled();
+      
+     this.employeefrom.get('email')?.disable();
       })
      }
 
@@ -70,10 +72,20 @@ const employee :Iemployee={
   salary:this.employeefrom.value.salary!,
 };
 
-this.HttpService.createemployee(employee).subscribe(()=>{
-  console.log("success");
- this.router.navigateByUrl("/employee-list");
-})
+if(this.isedit){
+  this.HttpService.Updateemployee(this.employeeid,employee).subscribe(()=>{
+    console.log('success');
+    this.router.navigateByUrl('/employee-list');
+  });
+}else{
+  this.HttpService.createemployee(employee).subscribe(()=>{
+    console.log("success");
+   this.router.navigateByUrl("/employee-list");
+  });
+
+}
+
+
 
 }
 }
