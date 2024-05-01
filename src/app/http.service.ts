@@ -34,4 +34,9 @@ export class HttpService {
     return this.http.put<Iemployee>(this.apiUrl+'updateEmployee/'+employeeId,employee)
   }
 
+  Deleteemployee(employeeId:number){
+    debugger;
+    return this.http.delete(this.apiUrl+'DeleteEmployee/'+employeeId)
+  }
+
 }

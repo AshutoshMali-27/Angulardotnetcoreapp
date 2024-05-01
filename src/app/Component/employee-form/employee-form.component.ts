@@ -28,25 +28,28 @@ export class EmployeeFormComponent implements OnInit {
   isedit=false;
   ngOnInit(): void {
       this.setemployee();
-     this.employeeid=this.route.snapshot.params['id'];
-     if(this.employeeid){
-      debugger;
-      this.isedit=true;
-      this.HttpService.getemployeebyid(this.employeeid).subscribe(result=>{
-        console.log(result);
-        this.employeefrom.patchValue(result);
-     //   this.employeefrom.controls.email.disabled();
-      
-     this.employeefrom.get('email')?.disable();
-      })
-     }
+      this.getallemployybuid();
 
+  }
+
+  getallemployybuid(){
+    this.employeeid=this.route.snapshot.params['id'];
+    if(this.employeeid){
+     debugger;
+     this.isedit=true;
+     this.HttpService.getemployeebyid(this.employeeid).subscribe(result=>{
+       console.log(result);
+       this.employeefrom.patchValue(result);
+    
+     })
+    }
   }
 
   setemployee(){
 
     this.employeefrom=this.fb.group({
       
+      id:[0],
       name:[""] ,
       email:[""],
       code:[""],
@@ -64,6 +67,8 @@ export class EmployeeFormComponent implements OnInit {
   formsubmit(){
 console.log(this.employeefrom.value);
 const employee :Iemployee={
+  
+  id:this.employeefrom.value.id!, 
   name:this.employeefrom.value.name!,  
   email:this.employeefrom.value.email!,
   code:this.employeefrom.value.code!,

@@ -20,6 +20,25 @@
         }
        
         <form [formGroup]="employeefrom" (ngSubmit)="formsubmit()">
+
+@if(isedit){
+
+    <div class="w-full flex flex-wrap">
+        <mat-form-field class="w-full">
+            <mat-label>id</mat-label>
+            <input type="id" matInput 
+                   placeholder="id" formControlName="id" >
+            
+          
+          </mat-form-field>
+    </div>
+}@else{
+
+
+}
+
+
+
             <div class="w-full flex flex-wrap">
                 <mat-form-field class="w-full">
                     <mat-label>Name</mat-label>

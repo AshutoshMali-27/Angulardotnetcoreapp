@@ -46,7 +46,10 @@ router=inject(Router)
   }
 
   delete(id:number){
-    console.log(id);
+    this.httpService.Deleteemployee(id).subscribe(()=>{
+      console.log('Deleted');
+      this.employeeList=this.employeeList.filter(x=>x.id!=id);
+    })
     
   }
 }
